@@ -22,13 +22,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::with('category')->get();
-        if (auth()->user()->hasRole("admin")) {
+
+        if (isset($request->search)) {
+            $products = Product::where('name', 'like', '%' . $request->search . '%')->get();
         }
+
         return view('home', [
-            "products" => $products
+            'products' => $products,
         ]);
     }
 }

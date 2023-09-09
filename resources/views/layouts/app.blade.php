@@ -42,6 +42,14 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <form class="mx-2" action="{{ route('home') }}">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="search" placeholder="search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submmit">search</button>
+                                </div>
+                            </div>
+                        </form>
                         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Cart</button>
                         <!-- Authentication Links -->
